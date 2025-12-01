@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex justify-evenly px-4 py-2 bg-red-300">
+    <input class="bg-red-50 border rounded px-4 py-2" type="text" id="regno" placeholder="Registration No">
+    <input class="bg-red-50 border rounded px-4 py-2" type="text" id="name" placeholder="Name">
+    <input class="bg-red-50 border rounded px-4 py-2" type="text" id="cgpa" placeholder="CGPA">
+    <button onclick="handleClick()" class="border rounded bg-red-50 px-4 py-2 hover:bg-red-100">
+      Submit Here
+    </button>
+  </div>
+
+  <div class="border p-4 m-4">
+    <table class="mx-auto border-collapse border border-gray-400">
+      <thead>
+        <tr class="bg-red-300">
+          <th class="border p-3 w-80 text-center">Registration Number</th>
+          <th class="border p-3 w-80 text-center">Name</th>
+          <th class="border p-3 w-80 text-center">CGPA</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    let data = [];
+
+    function handleClick() {
+      const regno = document.getElementById('regno').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const cgpa = document.getElementById('cgpa').value.trim();
+
+      if (!regno || !name || !cgpa) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      // Create object and push into data array
+      let obj = { regno, name, cgpa };
+      data.push(obj);
+
+      // Show data in table
+      show();
+
+      // Clear input fields
+      document.getElementById('regno').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('cgpa').value = '';
+    }
+
+    function show() {
+      let tableBody = document.getElementById('tableBody');
+      tableBody.innerHTML = ""; // clear table before re-rendering
+
+      data.map((i) => {
+        tableBody.innerHTML += `
+          <tr>
+            <td class="border p-3 text-center">${i.regno}</td>
+            <td class="border p-3 text-center">${i.name}</td>
+            <td class="border p-3 text-center">${i.cgpa}</td>
+          </tr>`;
+      });
+    }
+  </script>
+</body>
+</html>
