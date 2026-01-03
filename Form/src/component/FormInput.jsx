@@ -1,40 +1,33 @@
-import React, {useContext,useRef } from 'react'
+import React, { useContext, useState } from 'react'
 import MyContext from './MyContext'
 
-const FormInput = () => {
-  let {handleAdd} =  useContext(MyContext)
-  let inputName = useRef()
-  let inputRegno = useRef()
-  let inputCgpa = useRef()
+const Forminput = () => {
 
-  function handleClick() {
-    let newData = {
-      name: inputName.current.value,
-      RegNo: inputRegno.current.value,
-      Cgpa: inputCgpa.current.value
+
+let [name,setName]=useState()
+let [email,setEmail]=useState()
+let [password,setPassword]=useState()
+
+let handleClick = (e) =>{
+
+
+   e.preventDefault()
+    let newData={
+        Name:name,
+        Email:email,
+        Password:password
     }
-
     handleAdd(newData)
-
-    inputName.current.value = ""
-    inputRegno.current.value = ""
-    inputCgpa.current.value = ""
-  }
-
+   }
   return (
-    <div className='bg-black text-white text-3xl text-center p-4 space-x-8'>
-      <input ref={inputName} className='p-3' type="text" placeholder='Enter Name'/>
-      <input ref={inputRegno} className='p-3' type="text" placeholder='Enter Reg No'/>
-      <input ref={inputCgpa} className='p-3' type="text" placeholder='Enter CGPA'/>
-      
-      <button 
-        onClick={handleClick} 
-        className='bg-slate-700 border rounded p-4'
-      >
-        Click to Add
-      </button>
-    </div>
+    // <div>FormInput</div>
+    <form action="" onSubmit={(e)=>{handleClick(e)}}>
+        <input type="text" onChange={(e)=>{'setName(e.target'/>
+        <input type="email" placeholder='Enter email' />
+        <input type="password" placeholder='Enter password' />
+        <button onClick={handleClick}>Submit</button>
+    </form>
   )
 }
 
-export default FormInput
+export default Forminput

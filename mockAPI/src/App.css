@@ -1,0 +1,47 @@
+/* Main container */
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.form-box {
+  background: #b45309;  
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.form-box input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* Submit button */
+.form-box button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Output cards */
+.card {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  background: #f7f7f7;
+}
+
+.card h1 {
+  margin: 5px 0;
+}

@@ -1,12 +1,10 @@
 import React from 'react'
-import FormInput from './FormInput'
-import FormOutput from './FormOutput'
+import Forminput from './FormInput'
 
 const Form = () => {
   return (
     <div>
-      <FormInput />
-      <FormOutput />
+        <Forminput />
     </div>
   )
 }
